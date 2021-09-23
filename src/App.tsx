@@ -14,7 +14,7 @@ const App = () => {
   }, []);
 
   const getTopBanner = (): void => {
-    fetch('http://localhost:5002/banners/2.jpg')
+    fetch(`${process.env.REACT_APP_DD_ADS_URL}banners/2.jpg`)
       .then((res) => res.blob())
       .then((data) => {
         setTopBanner(URL.createObjectURL(data));
@@ -25,7 +25,7 @@ const App = () => {
   };
 
   const getBottomBanner = (): void => {
-    fetch('http://localhost:5002/banners/3.jpg')
+    fetch(`${process.env.REACT_APP_DD_ADS_URL}banners/3.jpg`)
       .then((res) => res.blob())
       .then((data) => {
         setBottomBanner(URL.createObjectURL(data));

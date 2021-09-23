@@ -26,7 +26,9 @@ const DiscountList = () => {
 
   const getDiscounts = async (): Promise<void> => {
     try {
-      const response = await fetch('http://localhost:5001/discount');
+      const response = await fetch(
+        `${process.env.REACT_APP_DD_DISCOUNTS_URL}discount`
+      );
       const data = await response.json();
 
       const savedDiscounts = localStorage.getItem('savedDiscounts');
