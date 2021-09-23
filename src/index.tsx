@@ -7,14 +7,17 @@ import reportWebVitals from './reportWebVitals';
 import { datadogRum } from '@datadog/browser-rum';
 
 datadogRum.init({
-  applicationId: 'ba9fab45-073a-4505-855f-07c69ed291ac',
-  clientToken: 'pub02ae579d9efe5231e286d1a2ec2b14cd',
+  applicationId: process.env.APPLICATION_ID || '',
+  clientToken: process.env.CLIENT_TOKEN || '',
   site: 'datadoghq.com',
   service: 'storedog-microsite',
-  // Specify a version number to identify the deployed version of your application in Datadog
   version: '1.0.0',
   sampleRate: 100,
   trackInteractions: true,
+  allowedTracingOrigins: [
+    /https:\/\/.*\.environments.katacoda\.com/,
+    'http://localhost:3001',
+  ],
 });
 
 datadogRum.startSessionReplayRecording();
