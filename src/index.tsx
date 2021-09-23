@@ -7,8 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import { datadogRum } from '@datadog/browser-rum';
 
 datadogRum.init({
-  applicationId: process.env.APPLICATION_ID || '',
-  clientToken: process.env.CLIENT_TOKEN || '',
+  applicationId: process.env.REACT_APP_DD_APPLICATION_ID || '',
+  clientToken: process.env.REACT_APP_DD_CLIENT_TOKEN || '',
   site: 'datadoghq.com',
   service: 'storedog-microsite',
   version: '1.0.0',

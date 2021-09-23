@@ -95,6 +95,8 @@ services:
       - DD_APPLICATION_ID
       - DD_DISCOUNTS_URL
       - DD_ADS_URL
+      - REACT_APP_DD_APPLICATION_ID
+      - REACT_APP_DD_CLIENT_TOKEN
     image: 'ddtraining/storefront-fixed:2.0.0'
     command: sh docker-entrypoint.sh
     ports:
