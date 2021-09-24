@@ -4,7 +4,7 @@ const Nav = () => {
       <nav className='w-10/12 mx-auto flex flex-wrap items-center'>
         <a href={`${process.env.REACT_APP_STOREDOG_URL}`}>
           <img
-            className='w-1/4 min-h-75'
+            className='w-1/4 h-logo'
             src='/assets/images/logo_nobg.png'
             alt='logo'
           />

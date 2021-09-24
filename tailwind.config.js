@@ -9,6 +9,9 @@ module.exports = {
       'storedog-dark': '#1E4668',
       ...colors,
     },
+    height: {
+      logo: '75px',
+    },
     extend: {},
   },
   variants: {
