@@ -19,7 +19,7 @@ const Advertisement = () => {
 
     const timer = setTimeout(() => {
       getAd();
-    }, Math.floor(Math.random() * 10000) + 5000);
+    }, Math.floor(Math.random() * 10000) + 3000);
 
     return () => clearTimeout(timer);
   }, [ad]);

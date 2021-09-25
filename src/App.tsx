@@ -16,7 +16,9 @@ const App = () => {
         </p>
         <DiscountList />
       </main>
-      <Advertisement />
+      <footer className='w-full flex flex-col items-center'>
+        <Advertisement />
+      </footer>
     </div>
   );
 };

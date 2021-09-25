@@ -2,9 +2,12 @@ const Nav = () => {
   return (
     <div className='w-full p-3 bg-storedog-dark'>
       <nav className='w-10/12 mx-auto flex flex-wrap items-center'>
-        <a href={`${process.env.REACT_APP_STOREDOG_URL}`}>
+        <a
+          className='block w-1/4 '
+          href={`${process.env.REACT_APP_STOREDOG_URL}`}
+        >
           <img
-            className='w-1/4 h-logo'
+            className='h-logo'
             src='/assets/images/logo_nobg.png'
             alt='logo'
           />
