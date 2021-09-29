@@ -15,7 +15,7 @@ ENV REACT_APP_DD_APPLICATION_ID=$DD_APPLICATION_ID \
   REACT_APP_DD_ADS_URL=$DD_ADS_URL \
   REACT_APP_STOREDOG_URL=$STOREDOG_URL
 
-RUN yarn build
+RUN npm run build
 
 FROM nginx
 COPY --from=0 /app/build /usr/share/nginx/html
