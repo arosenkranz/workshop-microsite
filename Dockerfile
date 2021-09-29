@@ -1,7 +1,7 @@
 FROM node:alpine
 WORKDIR /app
 COPY ./package*.json ./
-RUN npm install --silent
+RUN yarn install --silent
 COPY . .
 ARG DD_APPLICATION_ID
 ARG DD_CLIENT_TOKEN
@@ -15,7 +15,7 @@ ENV REACT_APP_DD_APPLICATION_ID=$DD_APPLICATION_ID \
   REACT_APP_DD_ADS_URL=$DD_ADS_URL \
   REACT_APP_STOREDOG_URL=$STOREDOG_URL
 
-RUN npm run build
+RUN yarn build
 
 FROM nginx
 COPY --from=0 /app/build /usr/share/nginx/html
