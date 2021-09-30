@@ -25,8 +25,8 @@ RUN npx datadog-ci sourcemaps upload ./build \
   --project-path=./src/ \
   --service=storedog-microsite \
   --release-version=1.1 \
-  --minified-path-prefix="${REACT_APP_MICROSITE_URL}/static/js" \
+  --minified-path-prefix="${REACT_APP_MICROSITE_URL}/static/js"
 
-  FROM nginx
+FROM nginx
 COPY --from=0 /app/build /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
