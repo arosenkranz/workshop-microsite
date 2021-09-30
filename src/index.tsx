@@ -11,7 +11,7 @@ datadogRum.init({
   clientToken: process.env.REACT_APP_DD_CLIENT_TOKEN || '',
   site: 'datadoghq.com',
   service: 'storedog-microsite',
-  version: '1.0.0',
+  version: '1.1',
   sampleRate: 100,
   trackInteractions: true,
   allowedTracingOrigins: [
