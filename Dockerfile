@@ -1,4 +1,7 @@
 FROM node:alpine
+RUN apk update
+RUN apk install git
+
 WORKDIR /app
 COPY ./package*.json ./
 RUN npm install --silent

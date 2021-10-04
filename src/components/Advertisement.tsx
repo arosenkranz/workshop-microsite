@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 
 export type AdvertisementState = {
-  path: string;
+  img: string;
   url: string;
-  name: string;
-  id: string;
-  weight: number;
 };
 
 const Advertisement = () => {
@@ -25,20 +22,28 @@ const Advertisement = () => {
   }, [ad]);
 
   const getAd = async () => {
-    const response = await fetch(`${process.env.REACT_APP_DD_ADS_URL}/ads`);
-    const data = await response.json();
-    const selectedAd = data[Math.floor(Math.random() * data.length)];
-    setAd(selectedAd);
+    try {
+      const response = await fetch(`${process.env.REACT_APP_DD_ADS_URL}/ads`);
+      const data = await response.json();
+      const { url, path } = data[Math.floor(Math.random() * data.length)];
+      const bannerAdRes = await fetch(
+        `${process.env.REACT_APP_DD_ADS_URL}/banners/${path}.jpg`
+      );
+      if (!bannerAdRes.ok) {
+        throw new Error('Error fetching banner ad');
+      }
+      const bannerAd = await bannerAdRes.blob();
+      setAd({ img: URL.createObjectURL(bannerAd), url });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <div className='my-3 mx-auto' style={{ minHeight: 96 }}>
       {ad && (
         <a href={`${process.env.REACT_APP_STOREDOG_URL}${ad.url}`}>
-          <img
-            src={`${process.env.REACT_APP_DD_ADS_URL}/banners/${ad.path}`}
-            alt={ad.name}
-          />
+          <img src={ad.img} alt='' />
         </a>
       )}
     </div>

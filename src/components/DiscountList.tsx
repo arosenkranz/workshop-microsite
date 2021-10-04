@@ -73,8 +73,10 @@ const DiscountList = () => {
   };
 
   const toggleDiscountSave = (id: number): void => {
-    const savedDiscounts = localStorage.getItem('savedDiscounts') || '[]';
-    const savedDiscountsArray = JSON.parse(savedDiscounts);
+    const savedDiscounts = localStorage.getItem('savedDiscounts');
+    const savedDiscountsArray = savedDiscounts
+      ? JSON.parse(savedDiscounts)
+      : [];
 
     const isSaved = savedDiscountsArray.includes(id);
 
