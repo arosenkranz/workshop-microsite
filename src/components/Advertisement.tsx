@@ -39,7 +39,7 @@ const Advertisement = () => {
         `${process.env.REACT_APP_DD_ADS_URL}/banners/${path}.jpg`
       );
       if (!bannerAdRes.ok) {
-        throw new Error('Error fetching banner ad');
+        throw new Error('Issue fetching banner ad');
       }
       const bannerAd = await bannerAdRes.blob();
       setAd({ img: URL.createObjectURL(bannerAd), url });
