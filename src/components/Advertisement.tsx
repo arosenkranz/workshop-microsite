@@ -30,7 +30,7 @@ const Advertisement = () => {
     }
   };
 
-  const handleGetAd = async () => {
+  const handleUserGetAd = async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_DD_ADS_URL}/ads`);
       const data = await response.json();
@@ -56,7 +56,7 @@ const Advertisement = () => {
             <img src={ad.img} alt='' />
           </a>
         )}
-        <button className='ml-auto text-underline' onClick={handleGetAd}>
+        <button className='ml-auto text-underline' onClick={handleUserGetAd}>
           Get New Ad
         </button>
       </div>
