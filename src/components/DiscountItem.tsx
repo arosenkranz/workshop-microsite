@@ -1,3 +1,4 @@
+import React from 'react';
 import type { DiscountType } from './DiscountList';
 
 const DiscountItem = ({

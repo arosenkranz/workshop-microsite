@@ -1,10 +1,12 @@
+import React from 'react';
+
 const Nav = () => {
   return (
     <div className='w-full p-3 bg-storedog-dark'>
       <nav className='w-10/12 mx-auto flex flex-wrap items-center'>
         <a
           className='block w-1/4 '
-          href={`${process.env.REACT_APP_STOREDOG_URL}`}
+          href={`${import.meta.env.REACT_APP_STOREDOG_URL}`}
         >
           <img
             className='h-logo'

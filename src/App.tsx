@@ -1,3 +1,4 @@
+import React from 'react';
 import Nav from './components/Nav';
 import Advertisement from './components/Advertisement';
 import DiscountList from './components/DiscountList';
