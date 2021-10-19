@@ -33,23 +33,17 @@ const Advertisement = () => {
   };
 
   const handleUserGetAd = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.REACT_APP_DD_ADS_URL}/ads`
-      );
-      const data = await response.json();
-      const { url, path } = data[Math.floor(Math.random() * data.length)];
-      const bannerAdRes = await fetch(
-        `${import.meta.env.REACT_APP_DD_ADS_URL}/banners/${path}.jpg`
-      );
-      if (!bannerAdRes.ok) {
-        throw new Error('Issue fetching banner ad');
-      }
-      const bannerAd = await bannerAdRes.blob();
-      setAd({ img: URL.createObjectURL(bannerAd), url });
-    } catch (err) {
-      console.error(err);
+    const response = await fetch(`${import.meta.env.REACT_APP_DD_ADS_URL}/ads`);
+    const data = await response.json();
+    const { url, path } = data[Math.floor(Math.random() * data.length)];
+    const bannerAdRes = await fetch(
+      `${import.meta.env.REACT_APP_DD_ADS_URL}/banners/${path}.jpg`
+    );
+    if (!bannerAdRes.ok) {
+      throw new Error('Issue fetching banner ad');
     }
+    const bannerAd = await bannerAdRes.blob();
+    setAd({ img: URL.createObjectURL(bannerAd), url });
   };
 
   return (
