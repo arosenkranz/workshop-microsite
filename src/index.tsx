@@ -11,6 +11,7 @@ datadogRum.init({
   site: 'datadoghq.com',
   service: 'storedog-microsite',
   version: '1.1',
+  env: `${import.meta.env.REACT_APP_DD_ENV}`,
   sampleRate: 100,
   trackInteractions: true,
   defaultPrivacyLevel: 'mask-user-input',
