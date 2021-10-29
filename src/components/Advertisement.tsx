@@ -49,14 +49,14 @@ const Advertisement = () => {
   return (
     <div className='my-3 mx-auto' style={{ minHeight: 96 }}>
       <div className='flex flex-col'>
+        <button className='text-underline' onClick={handleUserGetAd}>
+          Get New Ad
+        </button>
         {ad && (
           <a href={`${import.meta.env.REACT_APP_STOREDOG_URL}${ad.url}`}>
             <img src={ad.img} alt='' />
           </a>
         )}
-        <button className='ml-auto text-underline' onClick={handleUserGetAd}>
-          Get New Ad
-        </button>
       </div>
     </div>
   );
